@@ -1,0 +1,78 @@
+{{ define "main"}}
+    <main id="postsList" class="flex-column-center">
+        {{ range.Pages }}
+            <p>
+                <a href="{{ .Permalink }}">{{ .Title }}</a>
+            </p>
+        {{ end }}
+
+        <script src="https://unpkg.com/lunr/lunr.min.js"></script>
+        
+        <!-- Generate a list of posts so we can display them -->
+        {{ $p := slice }}
+        {{ range.Pages }}
+            {{ $post := dict "link" .RelPermalink "title" .Title "content" (substr .Plain 0 20) -}}
+            {{ $p = $p | append $post -}}
+        {{ end }}
+
+        <script>
+                const posts = JSON.parse(
+                    {{ $p | jsonify }}
+                );
+
+                function debounce(func, wait, immediate) {
+                    var timeout;
+                    return function() {
+                        var context = this, args = arguments;
+                        var later = function() {
+                            timeout = null;
+                            if (!immediate) func.apply(context, args);
+                        };
+                        var callNow = immediate && !timeout;
+                        clearTimeout(timeout);
+                        timeout = setTimeout(later, wait);
+                        if (callNow) func.apply(context, args);
+                    };
+                };
+
+                const searchBar = document.getElementById("searchBar");
+                const searchResults = document.getElementById("searchResults");
+
+                const list = (async () => {
+                    const indexData = await fetch('/search-index.json');
+                    const indexJson = await indexData.json();
+
+                    const index = lunr.Index.load(indexJson);
+
+                    const onTypeSearch = debounce(function(evt) {
+                        let searchTerm = evt.target.value;
+                        let matchPosts = [];
+
+                        index.search(searchTerm).forEach(match => matchPosts.push(match))
+
+                        searchResults.innerHTML = "";
+                    
+                        matchPosts.forEach(mpost => {
+                            const textNode = document.createElement("p");
+                            const anchorLink = document.createElement("a");
+                            const node = document.createTextNode(mpost.ref);
+
+                            anchorLink.appendChild(node);
+                            anchorLink.href = mpost.link;
+
+                            textNode.appendChild(anchorLink);
+
+                            searchResults.appendChild(textNode);
+                        })
+
+                        if (searchTerm.trim().length < 1) {
+                            searchResults.innerHTML = "";
+                        }
+                    }, 800);
+
+                    searchBar.addEventListener("input", onTypeSearch);
+                })();
+
+            </script>
+    </main>
+{{ end }}

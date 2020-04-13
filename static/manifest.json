@@ -1,0 +1,9 @@
+{
+    "name": "Markdown Hugo Scriptures",
+    "short_name": "Scriptures",
+    "background_color": "#000",
+    "theme_color": "#FFF",
+    "display": "standalone",
+    "start_url": "/",
+    "orientation": "portrait"
+}

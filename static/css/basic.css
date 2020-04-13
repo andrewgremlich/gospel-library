@@ -1,0 +1,226 @@
+@import url("https://fonts.googleapis.com/css?family=Crimson+Text&display=swap");
+
+:root {
+    /* COLOR SCHEME */
+    --theme-first-color: #43587f;
+    --theme-second-color: #4c437f;
+    --theme-attention: #68b4c1;
+    --theme-black: #3f3f3f;
+    --theme-white: #f2f2f2;
+    --faded-black: rgba(0, 0, 0, 0.2);
+    --box-shadow: 0px 0px 2px 2px var(--faded-black);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background: var(--theme-black);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+p,
+label {
+    font-family: "Crimson Text", serif;
+}
+
+h1 {
+    color: var(--theme-white);
+    margin-bottom: 10px;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6,
+ol {
+    color: var(--theme-first-color);
+}
+
+li {
+    color: var(--theme-attention);
+}
+
+h2 {
+    margin-bottom: 30px;
+}
+
+p {
+    font-size: 20px;
+    color: var(--theme-white);
+}
+
+a {
+    font-size: 20px;
+    text-decoration: none;
+}
+
+a:link {
+    color: var(--theme-attention);
+}
+
+a:visited {
+    color: var(--theme-attention);
+}
+
+a:hover {
+    color: var(--theme-white);
+}
+
+.flex-column-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 
+    MAIN
+ */
+
+main#homepage {
+    height: 100%;
+}
+
+main#homepage .gospel-library {
+    display: flex;
+    width: 400px;
+    justify-content: space-between;
+}
+
+#postsList {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+main#postsList p {
+    margin-bottom: 7.5px;
+}
+
+main#postsList p.date {
+    margin-bottom: 25px;
+}
+
+main#postsList hr {
+    width: 20%;
+    margin: 40px;
+    border: 1px solid var(--faded-black);
+}
+
+main#postContent {
+    height: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main#postContent article {
+    width: 95%;
+}
+
+@media (min-width: 850px) {
+    main#postContent article {
+        width: 40%;
+    }
+}
+
+main#postContent p {
+    margin-bottom: 20px;
+}
+
+main#postContent ul {
+    margin-left: 25px;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+main#postContent ul a {
+    font-size: 14px;
+}
+
+main#postContent blockquote {
+    border-left: 2px solid var(--theme-white);
+    padding-left: 20px;
+    margin-left: 10px;
+}
+
+main#postContent pre {
+    overflow: scroll;
+    padding: 30px;
+    border-radius: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+main#postContent p code {
+    background: var(--theme-black);
+    padding: 0px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* 
+    HEADER
+ */
+
+header {
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+}
+
+header .icon {
+    cursor: pointer;
+}
+
+@media (min-width: 850px) {
+    header nav {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+}
+
+/* 
+    FOOTER
+ */
+
+footer {
+    width: 100%;
+    padding: 10px;
+}
+
+@media (min-width: 850px) {
+    footer {
+        padding-left: 50px;
+    }
+}
+
+footer p {
+    margin: 0px;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+footer a {
+    font-size: 14px;
+}

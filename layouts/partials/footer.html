@@ -1,0 +1,25 @@
+<footer>
+    <p>An experiment with <a href="https://gohugo.io">Hugo</a>...</p>
+    <p>
+        Not associated with
+        <a href="https://www.churchofjesuschrist.org/study?lang=eng"
+            >The Church of Jesus Christ of Latter-day Saints Study</a
+        >
+    </p>
+    <p>Just an interested person for performance benefits...</p>
+</footer>
+
+<script>
+    if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+            .register("/sw.js")
+            .then(registration => {
+                console.log("service worker registered!");
+            })
+            .catch(err => console.error("SW failure...  :(", err));
+    }
+</script>
+
+{{- range .Site.Params.custom_js -}}
+<script src="{{ . }}"></script>
+{{ end }}
