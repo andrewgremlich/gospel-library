@@ -2,7 +2,6 @@
     "name": "markdown-gospel-library",
     "version": "1.0.0",
     "description": "Scriptures in Markdown and Hugo.",
-    "main": "renaming.js",
     "scripts": {
         "build:index": "node ./build-lunrjs-index.js > static/search-index.json"
     },
@@ -10,16 +9,12 @@
         "type": "git",
         "url": "git+https://github.com/andrewgremlich/markdown-gospel-library.git"
     },
-    "keywords": [],
-    "author": "",
-    "license": "MIT",
     "bugs": {
         "url": "https://github.com/andrewgremlich/markdown-gospel-library/issues"
     },
     "homepage": "https://github.com/andrewgremlich/markdown-gospel-library#readme",
     "devDependencies": {
-        "husky": "^3.1.0",
-        "lunr": "2.3.7",
-        "parser-front-matter": "^1.6.4"
+        "postcss-cli": "^7.1.1",
+        "postcss-preset-env": "^6.7.0"
     }
 }

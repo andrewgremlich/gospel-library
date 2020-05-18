@@ -1,5 +1,3 @@
-# hello world
+# Gospel Library Online
 
-come read the scriptures, please!
-
-[study](/study)
+[Scripture Study](/study/scriptures/)

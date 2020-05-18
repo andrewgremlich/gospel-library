@@ -21,6 +21,6 @@
     }
 </script>
 
-{{- range .Site.Params.custom_js -}}
-<script src="{{ . }}"></script>
-{{ end }}
+  {{ $downloader := resources.Get "js/downloader.js" }}
+  {{ $downloader = $downloader | minify | fingerprint }}
+  <script src="{{ $downloader.RelPermalink }}"></script>

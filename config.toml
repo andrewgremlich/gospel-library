@@ -2,15 +2,17 @@ baseURL = "https://gospel-library.netlify.com/"
 languageCode = "en"
 DefaultContentLanguage = "en"
 title = "Gospel Library | Performance"
-author = "Andrew Gremlich"
-copyright = "This work is licensed under MIT."
 
 [markup.goldmark.renderer]
 unsafe= true
 
+[outputs]
+page = ["json", "html"]
+section = ["json", "html"]
+home = ["json", "html"]
+
 [params]
 description = "The canonized scriptures of The Church of Jesus Christ of Latter-day Saints in performance benefits."
-publicationYear = "2020"
-custom_js = ["/js/downloader.js"]
-custom_css = ["/css/basic.css"]
-useSearch = true
+custom_js = []
+custom_css = []
+useSearch = false
