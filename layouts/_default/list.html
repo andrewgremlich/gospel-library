@@ -1,8 +1,17 @@
 {{ define "main"}}
+
+    <p>{{.Title}}</p>
+
+    {{ if .Content }} 
+    <div class="list-description">
+        {{ .Content }}
+    </div>
+    {{ end }}
+
     <main id="postsList" class="flex-column-center">
         {{ range .Pages.ByParam "order" }}
             <p>
-                <a href="{{ .Permalink }}">{{ .Title }}</a>
+                {{.Params.order}} {{.Params.content}}
             </p>
         {{ end }}
     </main>
